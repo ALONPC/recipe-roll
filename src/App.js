@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { Button, defaultTheme, ThemeProvider } from "evergreen-ui";
+import { Welcome } from "./components/Welcome";
+import { Ingredients } from "./components/Ingredients";
+import { Roll } from "./components/Roll";
+import { useEffect } from "react";
+import axios from "axios";
 
 function App() {
+  const theme = {
+    ...defaultTheme,
+    primary: "#90A375",
+    // button: {
+    //   color: "green",
+    // },
+  };
+  console.log("🚀 ~ file: App.js ~ line 13 ~ App ~ defaultTheme", defaultTheme);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider value={theme}>
+      <div className="App">
+        <header className="App-header">
+          <Welcome></Welcome>
+          <Ingredients></Ingredients>
+        </header>
+      </div>
+    </ThemeProvider>
   );
 }
 
