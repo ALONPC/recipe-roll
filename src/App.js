@@ -1,11 +1,7 @@
-import logo from "./logo.svg";
 import "./App.css";
-import { Button, defaultTheme, ThemeProvider } from "evergreen-ui";
+import { defaultTheme, ThemeProvider } from "evergreen-ui";
 import { Welcome } from "./components/Welcome";
 import { Ingredients } from "./components/Ingredients";
-import { Roll } from "./components/Roll";
-import { useEffect } from "react";
-import axios from "axios";
 
 function App() {
   const theme = {
