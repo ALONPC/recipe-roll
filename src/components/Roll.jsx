@@ -1,6 +1,7 @@
 import axios from "axios";
 import { Button, Pane } from "evergreen-ui";
 import React, { useState } from "react";
+import { Loading } from "./Loading";
 import { Recipe } from "./Recipe";
 
 export const Roll = ({ ingredients, disabled }) => {
@@ -44,7 +45,15 @@ export const Roll = ({ ingredients, disabled }) => {
       >
         ROLL!
       </Button>
-      {!!recipes && !!recipes.length && <Recipe recipe={recipes[0]}></Recipe>}
+      {!!recipes && !!recipes.length && (
+        <Recipe
+          recipe={
+            recipes[0]
+            // Math.floor(Math.random() * recipes.length - 1) + 1
+          }
+        ></Recipe>
+      )}
+      {!recipes.length && loading && <Loading></Loading>}
     </Pane>
   );
 };
